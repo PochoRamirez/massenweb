@@ -22,7 +22,7 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: ng build --configuration production --base-href /massenweb/
+      run: npx ng build --configuration production --base-href /massenweb/
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
