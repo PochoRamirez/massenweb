@@ -1,0 +1,172 @@
+<section id="contact" class="py-5 bg-wood text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="display-4 fw-bold mb-4">Get Your Custom Quote</h2>
+        <p class="lead">
+          Ready to start your project? Contact our wood experts for personalized 
+          recommendations and competitive pricing.
+        </p>
+      </div>
+    </div>
+    
+    <div class="row g-5">
+      <!-- Contact Information -->
+      <div class="col-lg-4">
+        <div class="contact-info">
+          <h4 class="fw-bold mb-4 text-wood-light">Contact Information</h4>
+          
+          <div class="contact-item d-flex align-items-start mb-4">
+            <div class="contact-icon me-3">
+              <i class="fas fa-map-marker-alt fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Address</h6>
+              <p class="mb-0 opacity-75">123 Timber Lane<br>Wood Valley, WV 12345</p>
+            </div>
+          </div>
+          
+          <div class="contact-item d-flex align-items-start mb-4">
+            <div class="contact-icon me-3">
+              <i class="fas fa-phone fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Phone</h6>
+              <p class="mb-0 opacity-75">+1 (555) 123-WOOD</p>
+            </div>
+          </div>
+          
+          <div class="contact-item d-flex align-items-start mb-4">
+            <div class="contact-icon me-3">
+              <i class="fas fa-envelope fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Email</h6>
+              <p class="mb-0 opacity-75">indcraft.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item d-flex align-items-start mb-4">
+            <div class="contact-icon me-3">
+              <i class="fas fa-clock fa-lg"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Business Hours</h6>
+              <p class="mb-0 opacity-75">Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</p>
+            </div>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="social-links mt-4">
+            <h6 class="fw-bold mb-3">Follow Us</h6>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white opacity-75 hover-opacity-100">
+                <i class="fab fa-facebook fa-lg"></i>
+              </a>
+              <a href="#" class="text-white opacity-75 hover-opacity-100">
+                <i class="fab fa-instagram fa-lg"></i>
+              </a>
+              <a href="#" class="text-white opacity-75 hover-opacity-100">
+                <i class="fab fa-linkedin fa-lg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="col-lg-8">
+        <div class="contact-form bg-white bg-opacity-10 backdrop-blur rounded-4 p-4">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name *</label>
+                <input type="text" class="form-control form-control-lg" formControlName="name" placeholder="Your full name">
+                @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                  <div class="text-warning small mt-1">
+                    <i class="fas fa-exclamation-triangle me-1"></i>Name is required
+                  </div>
+                }
+              </div>
+              
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address *</label>
+                <input type="email" class="form-control form-control-lg" formControlName="email" placeholder="your@email.com">
+                @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                  <div class="text-warning small mt-1">
+                    <i class="fas fa-exclamation-triangle me-1"></i>Valid email is required
+                  </div>
+                }
+              </div>
+              
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number</label>
+                <input type="tel" class="form-control form-control-lg" formControlName="phone" placeholder="(555) 123-4567">
+              </div>
+              
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Wood Type</label>
+                <select class="form-select form-select-lg" formControlName="woodType">
+                  <option value="">Select wood type</option>
+                  <option value="oak">Oak</option>
+                  <option value="cedar">Cedar</option>
+                  <option value="walnut">Walnut</option>
+                  <option value="pine">Pine</option>
+                  <option value="maple">Maple</option>
+                  <option value="cherry">Cherry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="col-12">
+                <label class="form-label fw-semibold">Project Details *</label>
+                <textarea class="form-control" rows="4" formControlName="message" 
+                         placeholder="Tell us about your project, dimensions needed, quantity, timeline, etc."></textarea>
+                @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                  <div class="text-warning small mt-1">
+                    <i class="fas fa-exclamation-triangle me-1"></i>Project details are required
+                  </div>
+                }
+              </div>
+              
+              <!-- Success/Error Messages -->
+              @if (submitSuccess()) {
+                <div class="col-12">
+                  <div class="alert alert-success d-flex align-items-center">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Thank you! We'll contact you within 24 hours with your custom quote.
+                  </div>
+                </div>
+              }
+              
+              @if (submitError()) {
+                <div class="col-12">
+                  <div class="alert alert-danger d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    {{ submitError() }}
+                  </div>
+                </div>
+              }
+              
+              <div class="col-12">
+                <button type="submit" class="btn btn-wood-light btn-lg w-100" 
+                        [disabled]="contactForm.invalid || isSubmitting()">
+                  @if (isSubmitting()) {
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    Sending Quote Request...
+                  } @else {
+                    <i class="fas fa-paper-plane me-2"></i>
+                    Get My Custom Quote
+                  }
+                </button>
+                <small class="text-white-50 d-block mt-2 text-center">
+                  * We'll respond within 24 hours with your personalized quote
+                </small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

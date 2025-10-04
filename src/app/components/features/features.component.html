@@ -1,0 +1,63 @@
+<section id="features" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center mb-5">
+        <h2 class="display-4 fw-bold text-wood mb-4">¿Por qué Elegir Nuestra Madera?</h2>
+        <p class="lead text-muted">
+          Estamos comprometidos a proporcionar madera de la más alta calidad con prácticas sostenibles 
+          y un servicio al cliente excepcional.
+        </p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      @for (feature of features(); track feature.id) {
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card h-100 p-4 bg-white rounded-4 shadow-sm border-0 text-center">
+            <div class="feature-icon mb-3">
+              <i class="{{ feature.icon }} fa-3x text-wood"></i>
+            </div>
+            <h4 class="fw-bold text-wood mb-3">{{ feature.title }}</h4>
+            <p class="text-muted mb-0">{{ feature.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <!-- Additional trust indicators -->
+    <div class="row mt-5 pt-5 border-top">
+      <div class="col-lg-12">
+        <div class="row text-center">
+          <div class="col-md-3 col-6 mb-4">
+            <div class="trust-badge">
+              <i class="fas fa-certificate fa-2x text-wood mb-2"></i>
+              <div class="fw-bold">Certificado FSC</div>
+              <small class="text-muted">Silvicultura Sostenible</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="trust-badge">
+              <i class="fas fa-shipping-fast fa-2x text-wood mb-2"></i>
+              <div class="fw-bold">Entrega Rápida</div>
+              <small class="text-muted">Envío Nacional</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="trust-badge">
+              <i class="fas fa-tools fa-2x text-wood mb-2"></i>
+              <div class="fw-bold">Corte Personalizado</div>
+              <small class="text-muted">Procesamiento de Precisión</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="trust-badge">
+              <i class="fas fa-headset fa-2x text-wood mb-2"></i>
+              <div class="fw-bold">Soporte Experto</div>
+              <small class="text-muted">Asistencia 24/7</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
