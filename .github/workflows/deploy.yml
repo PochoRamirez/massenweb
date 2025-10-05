@@ -29,6 +29,9 @@ jobs:
     - name: Build
       run: npx ng build --configuration production --base-href /massenweb/
       
+    - name: Copy .nojekyll
+      run: cp .nojekyll ./dist/woodcraft-landing/
+      
     - name: Setup Pages
       uses: actions/configure-pages@v3
       
