@@ -20,26 +20,19 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
     - name: Build
-      run: npx ng build --configuration production --base-href /massenweb/
-      
-    - name: Copy .nojekyll
-      run: cp .nojekyll ./dist/woodcraft-landing/
-      
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-      
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: ./dist/woodcraft-landing
-        
+      run: ng build --base-href /massenweb/
+      env:
+        NODE_OPTIONS: --max-old-space-size=4096
+
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
+        publish_dir: ./dist/massenweb
