@@ -26,8 +26,11 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+
     - name: Build
-      run: ngx ng build --base-href /massenweb/
+      run: ng build --base-href /massenweb/
       env:
         NODE_OPTIONS: --max-old-space-size=4096
 
