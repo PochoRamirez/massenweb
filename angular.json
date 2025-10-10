@@ -23,8 +23,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/404.html",
-              ".nojekyll"
+              "src/404.html"
             ],
             "styles": [
               "src/styles.css"
