@@ -4,14 +4,19 @@ import { LanguageService } from '../../services/language.service';
 @Component({
   selector: 'app-hero',
   standalone: true,
-  templateUrl: './hero.component.html'
+  templateUrl: './hero.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
   protected readonly languageService = inject(LanguageService);
   
   scrollToProducts() {
-    const element = document.querySelector('#products');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const element = document.querySelector('#products');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   }
   
   scrollToContact() {

@@ -1,14 +1,17 @@
 import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   templateUrl: './contact.component.html',
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent {
   private readonly fb = inject(FormBuilder);
+  protected readonly languageService = inject(LanguageService);
   
   protected readonly isSubmitting = signal(false);
   protected readonly submitSuccess = signal(false);

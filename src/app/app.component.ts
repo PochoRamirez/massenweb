@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { FeaturesComponent } from './components/features/features.component';

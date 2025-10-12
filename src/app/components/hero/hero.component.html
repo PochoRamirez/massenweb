@@ -11,12 +11,12 @@
             {{ languageService.getTranslation('hero.subtitle') }}
           </p>
           <div class="d-flex flex-wrap gap-3">
-            <button class="btn btn-wood btn-lg px-4 py-3" (click)="scrollToProducts()">
+            <a href="#products" class="btn btn-wood btn-lg px-4 py-3" style="position: relative; z-index: 10;">
               <i class="fas fa-search me-2"></i>{{ languageService.getTranslation('hero.explore') }}
-            </button>
-            <button class="btn btn-outline-light btn-lg px-4 py-3" (click)="scrollToContact()">
+            </a>
+            <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-3" style="position: relative; z-index: 10;">
               <i class="fas fa-calculator me-2"></i>{{ languageService.getTranslation('hero.quote') }}
-            </button>
+            </a>
           </div>
         </div>
       </div>

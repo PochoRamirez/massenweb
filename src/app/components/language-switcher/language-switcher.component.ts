@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
@@ -20,7 +20,8 @@ import { LanguageService } from '../../services/language.service';
       </button>
     </div>
   `,
-  styleUrl: './language-switcher.component.css'
+  styleUrl: './language-switcher.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LanguageSwitcherComponent {
   protected readonly languageService = inject(LanguageService);

@@ -7,7 +7,8 @@ import { LanguageSwitcherComponent } from '../language-switcher/language-switche
   standalone: true,
   templateUrl: './header.component.html',
   imports: [LanguageSwitcherComponent],
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   protected readonly isMenuOpen = signal(false);

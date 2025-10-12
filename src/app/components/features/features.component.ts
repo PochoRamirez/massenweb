@@ -10,7 +10,8 @@ interface Feature {
 @Component({
   selector: 'app-features',
   standalone: true,
-  templateUrl: './features.component.html'
+  templateUrl: './features.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturesComponent {
   protected readonly features = signal<Feature[]>([
