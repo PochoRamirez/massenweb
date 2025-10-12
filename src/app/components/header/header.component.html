@@ -11,19 +11,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#home">Inicio</a>
+          <a class="nav-link" href="#home">{{ languageService.getTranslation('nav.home') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#features">Características</a>
+          <a class="nav-link" href="#features">{{ languageService.getTranslation('nav.features') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#products">Productos</a>
+          <a class="nav-link" href="#products">{{ languageService.getTranslation('nav.products') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contacto</a>
+          <a class="nav-link" href="#contact">{{ languageService.getTranslation('nav.contact') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-outline-light ms-2 px-3" href="#contact">Cotizar</a>
+          <a class="nav-link btn btn-outline-light ms-2 px-3" href="#contact">{{ languageService.getTranslation('nav.quote') }}</a>
+        </li>
+        <li class="nav-item ms-3">
+          <app-language-switcher></app-language-switcher>
         </li>
       </ul>
     </div>

@@ -5,18 +5,17 @@
       <div class="col-lg-6">
         <div class="hero-content text-white">
           <h1 class="display-2 fw-bold mb-4 hero-title">
-            Premium Quality <span class="text-wood-light">Wood</span>
+            {{ languageService.getTranslation('hero.title') }}
           </h1>
           <p class="lead mb-5 fs-4">
-            Crafting excellence with sustainable timber for your dream projects. 
-            From construction to fine furniture, we provide the finest wood materials.
+            {{ languageService.getTranslation('hero.subtitle') }}
           </p>
           <div class="d-flex flex-wrap gap-3">
             <button class="btn btn-wood btn-lg px-4 py-3" (click)="scrollToProducts()">
-              <i class="fas fa-search me-2"></i>Explore Products
+              <i class="fas fa-search me-2"></i>{{ languageService.getTranslation('hero.explore') }}
             </button>
             <button class="btn btn-outline-light btn-lg px-4 py-3" (click)="scrollToContact()">
-              <i class="fas fa-calculator me-2"></i>Get Quote
+              <i class="fas fa-calculator me-2"></i>{{ languageService.getTranslation('hero.quote') }}
             </button>
           </div>
         </div>
@@ -26,15 +25,15 @@
           <div class="hero-stats">
             <div class="stat-card">
               <div class="stat-number">25+</div>
-              <div class="stat-label">Years Experience</div>
+              <div class="stat-label">{{ languageService.getTranslation('hero.years') }}</div>
             </div>
             <div class="stat-card">
               <div class="stat-number">1000+</div>
-              <div class="stat-label">Happy Clients</div>
+              <div class="stat-label">{{ languageService.getTranslation('hero.clients') }}</div>
             </div>
             <div class="stat-card">
               <div class="stat-number">50+</div>
-              <div class="stat-label">Wood Types</div>
+              <div class="stat-label">{{ languageService.getTranslation('hero.types') }}</div>
             </div>
           </div>
         </div>
