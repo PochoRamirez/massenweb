@@ -278,6 +278,12 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}
+
 /* Loading Animation */
 .spinner-border-sm {
   width: 1rem;
