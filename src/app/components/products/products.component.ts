@@ -53,20 +53,19 @@ export class ProductsComponent implements OnInit {
   }
   
   private parseCSV(csv: string): Product[] {
-    const lines = csv.split('\n');
-    const headers = lines[0].split(',');
+    const lines = csv.split('\n').filter(line => line.trim());
     const products: Product[] = [];
     
     for (let i = 1; i < lines.length; i++) {
       const values = lines[i].split(',');
       if (values.length >= 6) {
         products.push({
-          id: parseInt(values[0]) || i,
-          name: values[1]?.replace(/"/g, '') || '',
-          type: values[2]?.replace(/"/g, '') || '',
-          price: values[3]?.replace(/"/g, '') || '',
-          image: values[4]?.replace(/"/g, '') || '#d2b48c',
-          description: values[5]?.replace(/"/g, '') || ''
+          id: parseInt(values[0]?.replace(/"/g, '')) || i,
+          name: values[1]?.replace(/"/g, '').trim() || '',
+          type: values[2]?.replace(/"/g, '').trim() || '',
+          price: values[3]?.replace(/"/g, '').trim() || '',
+          image: values[4]?.replace(/"/g, '').trim() || '#d2b48c',
+          description: values[5]?.replace(/"/g, '').trim() || ''
         });
       }
     }
