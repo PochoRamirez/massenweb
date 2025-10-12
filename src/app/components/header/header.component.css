@@ -29,3 +29,15 @@
   background-color: white;
   color: #8b4513;
 }
+
+.nav-item app-language-switcher {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .nav-item app-language-switcher {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
