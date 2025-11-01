@@ -1,0 +1,59 @@
+.hero-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo-container {
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: 50%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border: 4px solid rgba(255,255,255,0.2);
+}
+
+.hero-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin: 0;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: #deb887;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-logo-container {
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+  }
+  
+  .hero-brand-name {
+    font-size: 2rem;
+  }
+  
+  .hero-tagline {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+}

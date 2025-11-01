@@ -19,7 +19,7 @@ export class FeaturesComponent {
       id: 1,
       icon: 'fas fa-leaf',
       title: 'Abastecimiento Sostenible',
-      description: 'Toda nuestra madera proviene de bosques gestionados responsablemente con certificación FSC'
+      description: 'Toda nuestra madera proviene de bosques gestionados responsablemente'
     },
     {
       id: 2,
@@ -36,8 +36,8 @@ export class FeaturesComponent {
     {
       id: 4,
       icon: 'fas fa-shipping-fast',
-      title: 'Entrega Rápida',
-      description: 'Servicio de entrega rápido y confiable a tu ubicación a nivel nacional'
+      title: 'Entrega Local',
+      description: 'Servicio de entrega confiable en Puerto Madryn y zona'
     }
   ]);
 }

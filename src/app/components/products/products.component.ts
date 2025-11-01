@@ -2,19 +2,33 @@ import { Component, ChangeDetectionStrategy, signal, inject, computed, OnInit } 
 import { HttpClient } from '@angular/common/http';
 import { LanguageService } from '../../services/language.service';
 
+interface ProductSize {
+  dimension: string;  // ej: "1x4"
+  length: string;     // ej: "3 mts"
+  price: string;      // ej: "$45/pie²"
+}
+
+interface ProductFeature {
+  text: string;
+  icon: string;
+}
+
 interface Product {
   id: number;
   name: string;
   type: string;
-  price: string;
+  category: string;
   image: string;
   description: string;
+  features: ProductFeature[];
+  sizes: ProductSize[];
 }
 
 @Component({
   selector: 'app-products',
   standalone: true,
   templateUrl: './products.component.html',
+  styleUrl: './products.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
@@ -22,13 +36,13 @@ export class ProductsComponent implements OnInit {
   protected readonly languageService = inject(LanguageService);
   protected readonly activeFilter = signal('all');
   protected readonly products = signal<Product[]>([]);
+  protected readonly expandedProducts = signal<Set<number>>(new Set());
+  protected readonly loadError = signal(false);
   
   protected readonly filteredProducts = computed(() => {
     const filter = this.activeFilter();
     if (filter === 'all') return this.products();
-    return this.products().filter(product => 
-      filter === 'hardwood' ? product.type === 'Madera Dura' : product.type === 'Madera Blanda'
-    );
+    return this.products().filter(product => product.category === filter);
   });
   
   ngOnInit() {
@@ -37,76 +51,31 @@ export class ProductsComponent implements OnInit {
   
   private async loadProducts() {
     try {
-      // URL de Google Sheets publicada como CSV
-      const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFMXoGRQ1N7JB9jZgSfZJCLX0REp7QFY15xvrtuHtjrcb4TYYbpOM6gEAwsROSJ-N3Up5ncufXt-Tp/pub?gid=0&single=true&output=csv';
-      
-      const response = await this.http.get(sheetUrl, { responseType: 'text' }).toPromise();
-      if (response) {
-        const products = this.parseCSV(response);
-        this.products.set(products);
+      const data = await this.http.get<{products: Product[]}>('assets/products-data.json').toPromise();
+      if (data?.products) {
+        this.products.set(data.products);
+        this.loadError.set(false);
+      } else {
+        this.loadFallbackProducts();
       }
     } catch (error) {
-      console.error('Error loading products from Google Sheets:', error);
-      // Fallback a datos locales
+      console.error('Error loading products:', error);
       this.loadFallbackProducts();
     }
   }
   
   private parseCSV(csv: string): Product[] {
-    const lines = csv.split('\n').filter(line => line.trim());
-    const products: Product[] = [];
-    
-    for (let i = 1; i < lines.length; i++) {
-      const values = lines[i].split(',');
-      if (values.length >= 6) {
-        products.push({
-          id: parseInt(values[0]?.replace(/"/g, '')) || i,
-          name: values[1]?.replace(/"/g, '').trim() || '',
-          type: values[2]?.replace(/"/g, '').trim() || '',
-          price: values[3]?.replace(/"/g, '').trim() || '',
-          image: values[4]?.replace(/"/g, '').trim() || '#d2b48c',
-          description: values[5]?.replace(/"/g, '').trim() || ''
-        });
-      }
-    }
-    return products;
+    // Para CSV necesitarías una estructura más compleja
+    // Por ahora usar fallback hasta configurar Google Sheets correctamente
+    console.log('CSV parsing not implemented for new structure, using fallback data');
+    this.loadFallbackProducts();
+    return this.products();
   }
   
   private loadFallbackProducts() {
-    this.products.set([
-      {
-        id: 1,
-        name: 'Tablones de Roble Premium',
-        type: 'Madera Dura',
-        price: 'Desde $45/pie²',
-        image: '#d2b48c',
-        description: 'Hermosos tablones de roble perfectos para pisos y fabricación de muebles'
-      },
-      {
-        id: 2,
-        name: 'Madera de Cedro',
-        type: 'Madera Blanda',
-        price: 'Desde $28/pie²',
-        image: '#deb887',
-        description: 'Madera de cedro aromática ideal para proyectos exteriores y closets'
-      },
-      {
-        id: 3,
-        name: 'Tablas de Nogal',
-        type: 'Madera Dura',
-        price: 'Desde $65/pie²',
-        image: '#cd853f',
-        description: 'Rica madera de nogal con patrones de veta impresionantes para proyectos premium'
-      },
-      {
-        id: 4,
-        name: 'Pino para Construcción',
-        type: 'Madera Blanda',
-        price: 'Desde $18/pie²',
-        image: '#f4e4bc',
-        description: 'Madera de pino confiable para aplicaciones de construcción y enmarcado'
-      }
-    ]);
+    console.warn('Using empty fallback - all data should come from JSON file');
+    this.products.set([]);
+    this.loadError.set(true);
   }
   
   setFilter(filter: string) {
@@ -116,5 +85,39 @@ export class ProductsComponent implements OnInit {
   getQuote(productId: number) {
     const element = document.querySelector('#contact');
     element?.scrollIntoView({ behavior: 'smooth' });
+  }
+  
+  toggleSizes(productId: number) {
+    const expanded = this.expandedProducts();
+    const newExpanded = new Set(expanded);
+    
+    if (expanded.has(productId)) {
+      newExpanded.delete(productId);
+    } else {
+      newExpanded.add(productId);
+    }
+    
+    this.expandedProducts.set(newExpanded);
+  }
+  
+  isExpanded(productId: number): boolean {
+    return this.expandedProducts().has(productId);
+  }
+  
+  getVisibleSizes(product: Product) {
+    const maxVisible = 3;
+    if (this.isExpanded(product.id) || product.sizes.length <= maxVisible) {
+      return product.sizes;
+    }
+    return product.sizes.slice(0, maxVisible);
+  }
+  
+  hasMoreSizes(product: Product): boolean {
+    return product.sizes.length > 3;
+  }
+  
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/images/logo.jpg';
   }
 }

@@ -5,6 +5,7 @@ import { LanguageService } from '../../services/language.service';
   selector: 'app-hero',
   standalone: true,
   templateUrl: './hero.component.html',
+  styleUrl: './hero.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
