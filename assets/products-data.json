@@ -2,35 +2,149 @@
   "products": [
     {
       "id": 1,
-      "name": "Tablones de Roble Premium",
-      "type": "Madera Dura",
-      "price": "Desde $45/pie²",
-      "image": "#d2b48c",
-      "description": "Hermosos tablones de roble perfectos para pisos y fabricación de muebles"
+      "name": "Tirante Pino",
+      "type": "Madera Blanda",
+      "category": "Estructural",
+      "image": "assets/images/tirante-pino.webp",
+      "description": "Madera estructural para construcción, marcos y armazones de techos",
+      "features": [
+        { "text": "Liviano", "icon": "fas fa-feather-alt" },
+        { "text": "Fácil trabajo", "icon": "fas fa-tools" },
+        { "text": "Económico", "icon": "fas fa-dollar-sign" }
+      ],
+      "sizes": [
+        { "dimension": "2\"x3\"", "length": "3 mts", "price": "Consultar" },
+        { "dimension": "2\"x4\"", "length": "3.6 mts", "price": "Consultar" },
+        { "dimension": "2\"x4\"", "length": "4.2 mts", "price": "Consultar" },
+        { "dimension": "2\"x6\"", "length": "3 mts", "price": "Consultar" },
+        { "dimension": "3\"x6\"", "length": "3.6 mts", "price": "Consultar" },
+        { "dimension": "3\"x8\"", "length": "4.2 mts", "price": "Consultar" },
+        { "dimension": "3\"x8\"", "length": "4.8 mts", "price": "Consultar" },
+        { "dimension": "3\"x8\"", "length": "5.4 mts", "price": "Consultar" },
+        { "dimension": "3\"x8\"", "length": "6 mts", "price": "Consultar" }
+      ]
     },
     {
       "id": 2,
-      "name": "Madera de Cedro",
-      "type": "Madera Blanda",
-      "price": "Desde $28/pie²",
-      "image": "#deb887",
-      "description": "Madera de cedro aromática ideal para proyectos exteriores y closets"
+      "name": "Tablas Deck",
+      "type": "Madera Dura",
+      "category": "Revestimiento",
+      "image": "assets/images/deck.webp",
+      "description": "Especiales para decks exteriores, tratadas para resistir la intemperie",
+      "features": [
+        { "text": "Tratada CCA", "icon": "fas fa-fire" },
+        { "text": "Anti-hongos", "icon": "fas fa-leaf" },
+        { "text": "Exterior", "icon": "fas fa-sun" }
+      ],
+      "sizes": [
+        { "dimension": "10.5 cm", "length": "2.40 a 3.90 mts", "price": "Consultar" }
+      ]
     },
     {
       "id": 3,
-      "name": "Tablas de Nogal",
+      "name": "Viga Laminada Eucalipto",
       "type": "Madera Dura",
-      "price": "Desde $65/pie²",
-      "image": "#cd853f",
-      "description": "Rica madera de nogal con patrones de veta impresionantes para proyectos premium"
+      "category": "Estructural",
+      "image": "assets/images/vigalaminadaeucapito.jpg",
+      "description": "Estructuras de gran resistencia, perfectas para construcciones pesadas",
+      "features": [
+        { "text": "Alta resistencia", "icon": "fas fa-shield-alt" },
+        { "text": "Durabilidad", "icon": "fas fa-gem" },
+        { "text": "Gran longitud", "icon": "fas fa-ruler-horizontal" }
+      ],
+      "sizes": [
+        { "dimension": "3\"x8\"", "length": "6 a 12 mts", "price": "Consultar" },
+        { "dimension": "3\"x10\"", "length": "6 a 12 mts", "price": "Consultar" },
+        { "dimension": "4\"x8\"", "length": "6 a 12 mts", "price": "Consultar" },
+        { "dimension": "4\"x10\"", "length": "6 a 12 mts", "price": "Consultar" },
+        { "dimension": "4\"x12\"", "length": "6 a 12 mts", "price": "Consultar" }
+      ]
     },
     {
       "id": 4,
-      "name": "Pino para Construcción",
+      "name": "Machimbre",
       "type": "Madera Blanda",
-      "price": "Desde $18/pie²",
-      "image": "#f4e4bc",
-      "description": "Madera de pino confiable para aplicaciones de construcción y enmarcado"
+      "category": "Revestimiento",
+      "image": "assets/images/machimbre.jpeg",
+      "description": "Para revestimientos interiores y exteriores con sistema macho-hembra",
+      "features": [
+        { "text": "Encastre perfecto", "icon": "fas fa-puzzle-piece" },
+        { "text": "Fácil instalación", "icon": "fas fa-hammer" },
+        { "text": "Terminación lisa", "icon": "fas fa-star" }
+      ],
+      "sizes": [
+        { "dimension": "1/2\"", "length": "3 y 3.6 mts", "price": "Consultar" },
+        { "dimension": "3/4\"", "length": "3 y 3.6 mts", "price": "Consultar" },
+        { "dimension": "1\"", "length": "3 y 3.6 mts", "price": "Consultar" }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Tablas de Encofrar",
+      "type": "Madera Blanda",
+      "category": "Construcción",
+      "image": "assets/images/encofrar.jpg",
+      "description": "Para encofrado de hormigón, resistentes y reutilizables múltiples veces",
+      "features": [
+        { "text": "Reutilizable", "icon": "fas fa-recycle" },
+        { "text": "Resistente", "icon": "fas fa-hard-hat" },
+        { "text": "Superficie lisa", "icon": "fas fa-hand-paper" }
+      ],
+      "sizes": [
+        { "dimension": "1\"x4\"", "length": "2.40 a 4 mts", "price": "Consultar" },
+        { "dimension": "1\"x5\"", "length": "Variable", "price": "Consultar" },
+        { "dimension": "1\"x6\"", "length": "Variable", "price": "Consultar" },
+        { "dimension": "3\"x3\"", "length": "Variable", "price": "Consultar" }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Placas Eucalipto",
+      "type": "Madera Dura",
+      "category": "Revestimiento",
+      "image": "assets/images/placa eucalipto.webp",
+      "description": "Para revestimientos y aplicaciones estructurales de alta calidad",
+      "features": [
+        { "text": "Madera noble", "icon": "fas fa-crown" },
+        { "text": "Vetas naturales", "icon": "fas fa-tree" },
+        { "text": "Resistente", "icon": "fas fa-bolt" }
+      ],
+      "sizes": [
+        { "dimension": "20mm", "length": "1.20 x 3 mts", "price": "Consultar" },
+        { "dimension": "40mm", "length": "1.20 x 3 mts", "price": "Consultar" }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Placas Fenólicas",
+      "type": "Madera Blanda",
+      "category": "Construcción",
+      "image": "assets/images/placa obra fenolico.jpg",
+      "description": "Resistentes al agua, ideales para encofrados y construcción húmeda",
+      "features": [
+        { "text": "Impermeable", "icon": "fas fa-tint" },
+        { "text": "Anti-deformación", "icon": "fas fa-compress-arrows-alt" },
+        { "text": "Larga vida", "icon": "fas fa-hourglass-end" }
+      ],
+      "sizes": [
+        { "dimension": "18mm", "length": "1.22 x 2.44 mts", "price": "Consultar" }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Placas OSB",
+      "type": "Madera Blanda",
+      "category": "Construcción",
+      "image": "assets/images/placa obra osb.webp",
+      "description": "Tableros de virutas orientadas para construcción y carpintería general",
+      "features": [
+        { "text": "Económico", "icon": "fas fa-coins" },
+        { "text": "Versátil", "icon": "fas fa-wrench" },
+        { "text": "Fácil corte", "icon": "fas fa-cut" }
+      ],
+      "sizes": [
+        { "dimension": "9.5mm", "length": "1.22 x 2.44 mts", "price": "Consultar" }
+      ]
     }
   ]
 }
