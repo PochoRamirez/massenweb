@@ -1,6 +1,6 @@
-# MaderaCraft - Landing Page
+# MassenMaderas - Landing Page
 
-Landing page profesional para empresa de madera construida con Angular 18+ y Bootstrap 5.
+Landing page para maderera construida con Angular 18+ y Bootstrap 5.
 
 ## 🚀 Características
 
